@@ -1,0 +1,23 @@
+int motorPin = 3;
+int sensorPin = A1;
+int thresholdMargin = 400;
+
+void setup()
+{
+  pinMode(motorPin, OUTPUT);
+  Serial.begin(9600);
+}
+void loop()
+{
+  int sensorValue = analogRead(sensorPin);
+  Serial.println(sensorValue);
+ if( sensorValue > thresholdMargin)
+  {
+    digitalWrite(motorPin, HIGH);  
+  }
+  else
+  {
+    digitalWrite(motorPin, LOW);  
+  }
+  delay(1000);
+}
